@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection & Severity Estimation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AgroVision AI</h1>
+            <p>Upload a leaf image to instantly detect diseases and measure severity.</p>
+        </header>
+
+        <div class="card">
+            <form id="upload-form">
+                <div class="upload-area" id="upload-area">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem; opacity: 0.8;">🍃</div>
+                    <input type="file" id="image-input" name="image" accept="image/*" required>
+                    <p style="color: var(--text-main); font-weight: 500; margin-top: 0.5rem;">Click or drag to upload an
+                        image</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Supports JPG, PNG</p>
+                </div>
+                <button type="submit" id="analyze-btn" class="btn">Analyze Leaf Health</button>
+            </form>
+
+            <div class="preview-section" style="display: none;">
+                <h3>Uploaded Image</h3>
+                <img id="image-preview" src="" alt="Preview">
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p style="color: var(--primary); font-weight: 500;">Analyzing pathology & severity...</p>
+            </div>
+
+            <div id="result-section" class="result-card" style="display: none;">
+                <h3>Diagnostics Report</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="label">Disease</span>
+                        <span class="value" id="res-disease">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Severity</span>
+                        <span class="value" id="res-severity">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Level</span>
+                        <span class="value" id="res-level">-</span>
+                    </div>
+                    <div class="result-item" style="display: none;">
+                        <span class="label">Spots Detected</span>
+                        <span class="value" id="res-spots">-</span>
+                    </div>
+                </div>
+
+                <div id="info-section"
+                    style="display: none; text-align: left; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                    <h4 style="color: var(--text-main); margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">🔍
+                        Possible Causes</h4>
+                    <p id="res-causes"
+                        style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
+                    </p>
+                    <h4 style="color: var(--text-main); margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">🛡️
+                        Recommended Remedies</h4>
+                    <p id="res-remedies" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;"></p>
+                </div>
+            </div>
+
+            <div id="error-message" class="error" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Expandable & Structured Chat Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header" id="chat-header">
+            <div class="header-info">
+                <span class="status-dot"></span>
+                <h4>Agro AI Assistant</h4>
+            </div>
+            <div class="header-actions">
+                <!-- Maximize/Expand Button -->
+                <button id="chat-expand" class="action-btn" title="Expand" aria-label="Expand">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                </button>
+                <!-- Collapse/Minimize Button -->
+                <button id="chat-toggle" class="action-btn" title="Minimize" aria-label="Minimize">▼</button>
+            </div>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-date-divider"><span>Today</span></div>
+                <!-- Initial AI Message -->
+                <div class="message-wrapper ai">
+                    <div class="avatar">🤖</div>
+                    <div class="message-content">
+                        <span class="sender-name">Agro AI</span>
+                        <div class="message-bubble ai-message">
+                            Hello! Upload a leaf image, and I can answer specific questions about its condition or
+                            treatment plans.
+                        </div>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="input-container">
+                    <input type="text" id="chat-input" placeholder="Type your message...">
+                    <button id="chat-send" class="chat-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

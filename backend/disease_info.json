@@ -1,0 +1,42 @@
+{
+  "Tomato___Bacterial_spot": {
+    "causes": "Caused by the bacterium Xanthomonas campestris pv. vesicatoria. It thrives in warm, humid, and rainy weather. It can be introduced by infected seeds or transplants.",
+    "remedies": "Apply copper-based bactericides as a preventative measure. Practice crop rotation (avoid planting tomatoes or peppers in the same spot for 2-3 years). Avoid overhead watering to keep the foliage dry."
+  },
+  "Tomato___Early_blight": {
+    "causes": "Caused by the fungus Alternaria solani. Spread by wind, rain, or contaminated soil, especially in humid and warm conditions. Old leaves are usually affected first.",
+    "remedies": "Remove and destroy infected leaves immediately. Apply fungicides like chlorothalonil or copper early in the season. Ensure proper spacing for airflow and use mulch to prevent soil splashing onto lower leaves."
+  },
+  "Tomato___Late_blight": {
+    "causes": "Caused by the oomycete Phytophthora infestans. Favored by cool, wet weather and high humidity. It can spread rapidly and decimate a crop in days.",
+    "remedies": "Destroy infected plants immediately (do not compost). Apply protective fungicides before infection spreads. Ensure excellent ventilation and avoid planting near potatoes."
+  },
+  "Tomato___Leaf_Mold": {
+    "causes": "Caused by the fungus Passalora fulva. Develops rapidly in high relative humidity (above 85%) and moderate temperatures. Most common in greenhouse or high tunnel tomatoes.",
+    "remedies": "Improve air circulation by pruning and spacing plants properly. Reduce humidity in greenhouses. Apply appropriate fungicides early in the disease cycle."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "causes": "Caused by the fungus Septoria lycopersici. Spread by splashing rain and overhead irrigation in warm, wet weather.",
+    "remedies": "Remove infected lower leaves. Use copper or chlorothalonil fungicides. Avoid overhead watering, weed regularly, and clean up garden debris at the end of the season."
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "causes": "Infestation by Tetranychus urticae. Thrives in hot, dry weather. They pierce plant cells and suck out the contents, leaving stippled, yellowing leaves.",
+    "remedies": "Spray the plants with a strong stream of water to dislodge them. Use insecticidal soaps, neem oil, or horticultural oils. Introduce natural predators like ladybugs or predatory mites."
+  },
+  "Tomato___Target_Spot": {
+    "causes": "Caused by the fungus Corynespora cassiicola. Promoted by high humidity, prolonged leaf wetness, and warm temperatures.",
+    "remedies": "Improve canopy airflow by pruning. Apply targeted fungicides. Remove and destroy severely infected plant debris to reduce overwintering fungus."
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "causes": "A virus transmitted by the silverleaf whitefly (Bemisia tabaci). The virus prevents the plant from growing and producing fruit normally.",
+    "remedies": "Control whitefly populations with insecticidal soap or neem oil. Remove and destroy infected plants immediately. Use reflective mulches and weed the area around the plants."
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "causes": "A highly contagious virus spread by mechanical transmission (contaminated hands, tools, clothing) or infected seeds. Can survive in the soil for years.",
+    "remedies": "Remove and burn infected plants immediately. Wash hands with soap and disinfect tools frequently. Do not use tobacco products near plants (due to related tobacco mosaic virus)."
+  },
+  "Tomato___healthy": {
+    "causes": "",
+    "remedies": ""
+  }
+}
