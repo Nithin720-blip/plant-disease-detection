@@ -17,7 +17,7 @@ The system uses a **dual-model pipeline** to classify tomato leaf diseases and c
    - Applies **HSV Color Masking** (hue-saturation-value) to segment the leaf from the background and calculate total leaf area.
    - Computes the exact ratio of infected area to total leaf area:
      $$\text{Severity (\%)} = \left( \frac{\text{Infected Spot Area}}{\text{Total Leaf Area}} \right) \times 100$$
-   - Categorizes severity into levels: **Mild** ($<10\%$), **Moderate** ($10\% - 35\%$), and **Severe** ($\ge 35\%$).
+   - Categorizes severity into levels: **Mild** ($<10\%$), **Moderate** ($10\% - 40\%$), and **Severe** ($\ge 40\%$).
 
 3. **Agro AI Interactive Assistant**:
    - Fully integrated chatbot powered by **Google Gemini** (`gemini-2.5-flash`).
