@@ -65,8 +65,6 @@ plant-disease-system_miniProject/
 ├── uploads/                  # Temporary storage folder for uploaded leaf images
 ├── .env                      # API keys and local environment configurations
 ├── .gitignore                # Files excluded from Git tracking
-├── .dockerignore             # Files excluded from Docker context
-├── Dockerfile                # Deployment configuration file
 ├── requirements.txt          # Python packages list
 └── README.md                 # Project documentation (This file)
 ```
