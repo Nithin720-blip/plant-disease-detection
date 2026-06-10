@@ -66,7 +66,7 @@ plant-disease-system_miniProject/
 ├── .env                      # API keys and local environment configurations
 ├── .gitignore                # Files excluded from Git tracking
 ├── requirements.txt          # Python packages list
-└── README.md                 # Project documentation (This file)
+└── README.md                 # Project documentation 
 ```
 
 ---
